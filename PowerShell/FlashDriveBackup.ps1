@@ -1,9 +1,9 @@
 # Get Flash Drive letter from Volume Label and format to a file path; ex: E:\
-$flashdrive = (Get-Volume -FileSystemLabel "cerringt").Driveletter
+$flashdrive = (Get-Volume -FileSystemLabel "FlashDrive").Driveletter
 $flashdrive = $flashdrive + ":\"
 
 # Get Backup Drive letter from Volume Label and format to a file path; ex: D:\
-$external = (Get-Volume -FileSystemLabel "External").Driveletter
+$external = (Get-Volume -FileSystemLabel "BackupDrive").Driveletter
 $external = $external + ":\FlashDrive - Backup\"
 
 # Start xcopy with the following protocols:
