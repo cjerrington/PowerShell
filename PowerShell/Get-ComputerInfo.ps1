@@ -1,14 +1,14 @@
-﻿# Computer information
-# Functions include
-#   Get-SystemUptime
-#   Get-WifiPasswords
-#   Get-WindowsProductKey
-#   Get-MSOfficeKeys
-#   Get-ComputerInfo
-#   Get-IPMAC
-#   Get-InstalledSoftware
-#   Get-PendingReboot
-#   Various Domain Health Items
+#Computer information
+#Functions include
+#Get-SystemUptime
+#Get-WifiPasswords
+#Get-WindowsProductKey
+#Get-MSOfficeKeys
+#Get-ComputerInfo
+#Get-IPMAC
+#Get-InstalledSoftware
+#Get-PendingReboot
+#Various Domain Health Items
 
 #get system up time
 function Get-SystemUptime{
@@ -774,6 +774,7 @@ $computerSerial=Get-WMIObject -Class Win32_Bios -computername $env:computername 
 $currentSSID = netsh wlan show interfaces | Select-String '\sSSID'
 $currentSSID = ($currentSSID -split ":")[-1].Trim() -replace '"'
 
+Write-host "PowerShell Version: $($psversiontable.psversion.major) - ExecutionPolicy: $(Get-ExecutionPolicy)" -for cyan
 Write-Host "Basic Computer Info:"`n---------------------------------------------`n -for Yellow
 Get-ComputerInfo -ComputerName $env:computername
 Write-Host "Manufacturer: $computerManufacturer"
